@@ -1,5 +1,5 @@
 <template>
-  <main-page/>
+  <router-view />
 </template>
 
 <script>
@@ -32,14 +32,8 @@ export default {
   box-sizing: border-box;
 }
 
-html, body, #app {
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;
-}
-
-body {
-  overflow: hidden;
+html {
+  margin: 0;
 }
 
 #app {

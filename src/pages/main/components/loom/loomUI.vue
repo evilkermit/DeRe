@@ -392,8 +392,13 @@ export default {
           manager.value = emitter.emit('getManager')[0];
 
           let loadApp = 'tableau';
-          if(window.location.hash !== ''){
-            loadApp = window.location.hash.substring(1);
+
+          const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+
+          if (params.rva !== ''){
+            loadApp = params.rva;
           }
           emitter.emit('loadVideoCanvasState', loadApp);
         });
